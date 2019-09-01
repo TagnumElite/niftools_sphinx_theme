@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+niftools_sphinx_theme/static/css/theme.css binary
+niftools_sphinx_theme/static/js/theme.js binary
