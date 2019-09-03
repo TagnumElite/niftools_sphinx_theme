@@ -1,9 +1,13 @@
+// Theme Variables
+@import './theme_variables.scss';
 
+// Third-party css
+@import '~normalize.css/normalize.css';
+//@import '~primer-markdown/index.scss';
 
+// Theme Layout - Shouldn't be edited.
 @import './theme_layout.scss';
 
-@import '~normalize.css/normalize.css';
-@import '~primer-markdown/index.scss';
-
+// Theme Specific attributes
 @import './theme_syntax.scss';
 @import './theme_sphinx.scss';

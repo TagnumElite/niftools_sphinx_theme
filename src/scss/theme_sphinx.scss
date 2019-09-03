@@ -7,16 +7,16 @@
   line-height: 24px;
   margin-bottom: 24px;
   padding-bottom: 0;
-  background: #f2a333;
+  background: $admonition-background;
 
   .admonition-title {
-    color: #000;
+    color: $admonition-title-color;
     display: block;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
-    background-color: #658756;
-    margin: calc(-1 * var(--admonition-padding, -12px));
+    background-color: $admonition-title-background;
+    margin: calc(-1 * var(--admonition-padding, 12px));
 
     &::before {
       font-family: "Font Awesome 5 Free";
@@ -24,107 +24,137 @@
   }
 }
 
-/* Adminition: Attention */
+// Adminition: Attention
 
 .admonition.attention {
-  background-color: #fff;
+  background-color: $admonition-attention-background;
+
+  .admonition-title {
+    background-color: $admonition-attention-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f06a\00a0";
+    }
+  }
 }
 
-.admonition.attention .admonition-title::before {
-  font-weight: 900;
-  content: "\f06a\00a0";
-}
-
-.admonition.attention .admonition-title {
-  background-color: #fff;
-}
-
-/* Adminition: Caution */
+// Adminition: Caution
 
 .admonition.caution {
+  background-color: $admonition-caution-background;
+
+  .admonition-title {
+    background-color: $admonition-caution-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f00d\00a0";
+    }
+  }
 }
 
-.admonition.caution .admonition-title::before {
-  font-weight: 900;
-  content: "\f00d\00a0";
-}
-
-/* Adminition: Danger */
+// Adminition: Danger
 
 .admonition.danger {
-  background-color: #de4000;
+  background-color: $admonition-danger-background;
+
+  .admonition-title {
+    background-color: $admonition-danger-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f714\00a0";
+    }
+  }
 }
 
-.admonition.danger .admonition-title::before {
-  font-weight: 900;
-  content: "\f714\00a0";
-}
-
-.admonition.danger .admonition-title {
-  background-color: #ee0000;
-}
-
-/* Adminition: Error */
+// Adminition: Error
 
 .admonition.error {
+  background-color: $admonition-error-background;
+
+  .admonition-title {
+    background-color: $admonition-error-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f28b\00a0";
+    }
+  }
 }
 
-.admonition.error .admonition-title::before {
-  font-weight: 900;
-  content: "\f28b\00a0";
-}
-
-/* Adminition: Attention */
+// Adminition: Hint
 
 .admonition.hint {
+  background-color: $admonition-hint-background;
+
+  .admonition-title {
+    background-color: $admonition-hint-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f067\00a0";
+    }
+  }
 }
 
-.admonition.hint .admonition-title::before {
-  font-weight: 900;
-  content: "\f067\00a0";
-}
-
-/* Adminition: Important */
+// Adminition: Important
 
 .admonition.important {
+  background-color: $admonition-important-background;
+
+  .admonition-title {
+    background-color: $admonition-important-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f005\00a0";
+    }
+  }
 }
 
-.admonition.important .admonition-title::before {
-  font-weight: 900;
-  content: "\f005\00a0";
-}
-
-/* Adminition: Warning */
-
-.admonition.warning {
-  background-color: #ff8645;
-}
-
-.admonition.warning .admonition-title::before {
-  font-weight: 900;
-  content: "\f071\00a0";
-}
-
-.admonition.warning .admonition-title {
-  background-color: #ff5900;
-}
-
-/* Adminition: Note */
+// Adminition: Note
 
 .admonition.note {
+  background-color: $admonition-note-background;
+
+  .admonition-title {
+    background-color: $admonition-note-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f075\00a0";
+    }
+  }
 }
 
-.admonition.note .admonition-title::before {
-  font-weight: 900;
-  content: "\f075\00a0";
-}
-
-/* Adminition: Tip */
+// Adminition: Tip
 
 .admonition.tip {
+  background-color: $admonition-tip-background;
+
+  .admonition-title {
+    background-color: $admonition-tip-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f27a\00a0";
+    }
+  }
 }
 
-.admonition.tip .admonition-title::before {
-  font-weight: 900;
-  content: "\f27a\00a0";
+// Adminition: Warning
+
+.admonition.warning {
+  background-color: $admonition-warning-background;
+
+  .admonition-title {
+    background-color: $admonition-warning-title-background;
+
+    &::before {
+      font-weight: 900;
+      content: "\f071\00a0";
+    }
+  }
 }
