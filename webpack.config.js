@@ -1,38 +1,45 @@
-const path = require('path');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require("path");
+const TerserJSPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
+  entry: {
+    theme: "./src/index.js"
+  },
   output: {
-    filename: 'js/theme.js',
-    path: path.resolve(__dirname, 'niftools_sphinx_theme/static')
+    filename: "js/[name].js",
+    path: path.resolve(__dirname, "niftools_sphinx_theme/static")
   },
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: 'css/theme.css',
-    }),
+      filename: "css/[name].css"
+    })
   ],
   node: { Buffer: false },
   externals: {
-    jquery: 'jQuery'
+    jquery: "jQuery"
   },
   module: {
     rules: [
       {
-        test: require.resolve('./src/theme.js'),
-        use: 'imports-loader?this=>window'
+        test: /\.js$/i,
+        use: "babel-loader"
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ]
       }
     ]
-  },
+  }
 };

@@ -1,2 +1,2 @@
-import './scss/theme.scss';
-import './theme.js';
+import "./scss/theme.scss";
+import "./theme.js";
