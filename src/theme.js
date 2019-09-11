@@ -1,3 +1,5 @@
+var GeoPattern = require("geopattern");
+
 // Window Scroll
 var windowScroll = function() {
   $(window).scroll(function() {

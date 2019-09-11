@@ -1,13 +1,18 @@
 // Theme Variables
-@import "./theme_variables.scss";
+@import "theme_variables";
 
 // Third-party css
-@import "~normalize.css/normalize.css";
+@import "~normalize.css";
+@import "~hover.css";
 //@import '~primer-markdown/index.scss';
+@import "fontawesome";
 
 // Theme Layout - Shouldn't be edited.
-@import "./theme_layout.scss";
+@import "theme_layout";
 
 // Theme Specific attributes
-@import "./theme_syntax.scss";
-@import "./theme_sphinx.scss";
+@import "theme_syntax";
+
+// Sphinx Specific stylesheets
+@import "theme_sphinx";
+

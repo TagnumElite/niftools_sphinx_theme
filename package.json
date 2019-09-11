@@ -2,19 +2,21 @@
   "name": "niftools_sphinx_theme",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "npm run prettier && webpack --config webpack.config.js",
     "test": "ava --verbose test/*.js",
     "prettier": "prettier --write webpack.*.js *.config.js package.json src/**/*"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@fortawesome/fontawesome-free": "^5.10.2",
     "autoprefixer": "^9.6.1",
     "ava": "^2.3.0",
     "babel-loader": "^8.0.6",
     "clipboard": "^2.0.4",
-    "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
+    "geopattern": "^1.2.3",
+    "hover.css": "^2.3.2",
     "imports-loader": "^0.8.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
