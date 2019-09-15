@@ -1,0 +1,5 @@
+# Ignore page.html. It isn't needed here
+/src/html/page.html
+
+# Prettier doesn't work on xml files yet
+*.xml

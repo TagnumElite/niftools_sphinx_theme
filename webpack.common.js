@@ -1,24 +1,45 @@
 const path = require("path");
-const TerserJSPlugin = require("terser-webpack-plugin");
+const minify = require("html-minifier").minify;
+const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const html_minify_options = {
+  collapseWhitespace: true,
+  removeComments: true
+};
 
 module.exports = {
-  mode: "production",
   entry: {
     theme: "./src/index.js"
   },
   output: {
-    filename: "js/[name].js",
-    path: path.resolve(__dirname, "niftools_sphinx_theme/static")
-  },
-  optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+    filename: "static/js/[name].js",
+    path: path.resolve(__dirname, "niftools_sphinx_theme")
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "css/[name].css"
-    })
+      filename: "static/css/[name].css"
+    }),
+    new CopyPlugin([
+      {
+        from: "./src/html/",
+        to: ".",
+        force: true,
+        transform(content, path) {
+          return minify(content.toString(), html_minify_options);
+        }
+      },
+      {
+        from: "./src/templates/**/*.html",
+        to: ".",
+        force: true,
+        toType: "dir",
+        flatten: true,
+        transform(content, path) {
+          return minify(content.toString(), html_minify_options);
+        }
+      }
+    ])
   ],
   node: { Buffer: false },
   externals: {
@@ -47,7 +68,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]?[hash]",
-              outputPath: "fonts/",
+              outputPath: "static/fonts/",
               publicPath: "../fonts/"
             }
           }

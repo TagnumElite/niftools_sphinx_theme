@@ -10,8 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-from os.path import dirname, abspath, join
+from os.path import dirname, abspath
 import sys
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
@@ -34,7 +33,8 @@ release = __version__
 # ones.
 extensions = [
     'sphinx.ext.githubpages',
-    'sphinx.ext.intersphinx'
+    'sphinx.ext.intersphinx',
+    'niftools_sphinx_theme'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,4 +66,12 @@ html_static_path = ['_static']
 # documentation.
 #
 html_theme_options = {
+
+}
+
+# Additional templates that should be rendered to HTML pages
+html_additional_pages = {
+    'about': 'about.html',
+    # 'blog': 'blog.html',
+    # 'projects': 'projects.html',
 }
