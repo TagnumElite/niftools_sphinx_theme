@@ -4,10 +4,15 @@ html {
   scroll-behaviour: smooth;
   font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, freesans,
     sans-serif;
+  color: #333;
 }
 
 a {
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .flex-container {
@@ -15,6 +20,33 @@ a {
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+  width: 100%;
+}
+
+// Adapted from bootstrap-grid.css
+@media (min-width: 576px) {
+  .flex-container,
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .flex-container,
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .flex-container,
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .flex-container,
+  .container {
+    max-width: 1140px;
+  }
 }
 
 /* 1: Header ==================== */
@@ -27,7 +59,6 @@ header.header {
   background: #fff;
   color: #000;
   margin: 40px 0 30px;
-  transition: all 0.5s ease;
 
   &.scrolled {
     margin-top: 0;
@@ -38,13 +69,15 @@ header.header {
     }
   }
 
+  transition: all 0.5s ease;
+
   a {
     color: #2e2e2e;
     display: inline-flex;
-  }
 
-  .flex-container {
-    width: 1100px;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   nav {
@@ -79,7 +112,7 @@ header.header {
 
           &:hover {
             background: #eee;
-            color: #4183c4;
+            color: #1e77e2; //http://bada55.io/1e77e2
           }
         }
       }
@@ -97,7 +130,6 @@ header.header {
   background-attachment: fixed;
 
   .container {
-    width: 1100px;
     margin: auto;
     color: #fff;
     text-shadow: 1px 1px 15px #000;
@@ -119,60 +151,56 @@ header.header {
   }
 }
 
-/* 3: Sidebar =================== */
-.sidebar {
-  will-change: min-height;
+/* 3: Content =================== */
+div.content {
+  /* 3.1 Sidebar ====*/
+  .sidebar {
+    flex-grow: 1;
+    will-change: min-height;
 
-  .wrapper {
-    transform: translate(0, 0); /* For browsers don't support translate3d. */
-    transform: translate3d(0, 0, 0);
-    will-change: position, transform;
-  }
-
-  .local-toc,
-  .global-toc {
-    padding-left: 0;
-    margin-bottom: 0;
-
-    > ul {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-left: 0;
+    .wrapper {
+      transform: translate(0, 0); /* For browsers don't support translate3d. */
+      transform: translate3d(0, 0, 0);
+      will-change: position, transform;
     }
-  }
 
-  ul {
-    list-style: none;
+    .local-toc,
+    .global-toc {
+      padding-left: 0;
+      margin-bottom: 0;
 
-    li {
-      &.active a {
-        border-left: solid #cc00cc;
-        color: purple;
+      > ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
       }
+    }
 
-      a {
-        color: #767676;
-        //padding: 4px 20px;
-        font-size: 13px;
-        font-weight: 500;
+    ul {
+      list-style: none;
 
-        &:hover {
-          border-left: solid #cc00cc;
+      li {
+        &.active a {
+          border-left: solid #1ce;
           color: purple;
+        }
+
+        a {
+          color: #767676;
+          //padding: 4px 20px;
+          font-size: 13px;
+          font-weight: 500;
+
+          &:hover {
+            border-left: solid #1ce;
+            color: #1ce; //http://bada55.io/1ce
+          }
         }
       }
     }
   }
-}
 
-/* 4: Content =================== */
-div.content {
-  width: 1100px;
-
-  .sidebar {
-    flex-grow: 1;
-  }
-
+  /* 3.2 Article ====*/
   .article {
     flex-grow: 3;
 
@@ -181,7 +209,7 @@ div.content {
       visibility: hidden;
 
       &:hover {
-        color: #cc00cc;
+        text-decoration: none;
       }
 
       &::before {
@@ -193,6 +221,14 @@ div.content {
       }
     }
 
+    a {
+      color: #337ab7;
+
+      &:hover {
+        color: #23527c;
+      }
+    }
+
     h1,
     h2,
     h3,
@@ -200,18 +236,46 @@ div.content {
     h5,
     h6 {
       a {
-        color: #000;
+        color: #333;
 
         &:hover {
-          color: #cc00cc;
+          color: #10aded; //http://bada55.io/10aded
         }
       }
     }
   }
 }
 
-/* 5: Footer ==================== */
+/* 4: Footer ==================== */
 footer.footer {
-  width: 1000px;
+  margin-top: 40px;
+  border-top: 2px solid #eee;
+  padding: 40px 0;
   justify-content: space-between;
+
+  font-size: 12px;
+  line-height: 1.5;
+  color: #777;
+
+  .fa,
+  .fab,
+  .fad,
+  .fal,
+  .far,
+  .fas {
+    color: #ccc;
+    font-size: 32px;
+
+    &:hover {
+      color: #bbb;
+    }
+  }
+
+  a {
+    color: #337ab7;
+
+    &:hover {
+      color: #23527;
+    }
+  }
 }
