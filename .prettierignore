@@ -3,3 +3,6 @@
 
 # Prettier doesn't work on xml files yet
 *.xml
+
+# Prettier can't do jinja templates yet
+*.html

@@ -5,7 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const html_minify_options = {
   collapseWhitespace: true,
-  removeComments: true
+  removeComments: true,
+  minifyCSS: true,
+  minifyJS: true
 };
 
 module.exports = {

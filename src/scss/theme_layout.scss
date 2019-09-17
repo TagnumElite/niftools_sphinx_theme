@@ -23,32 +23,6 @@ a {
   width: 100%;
 }
 
-// Adapted from bootstrap-grid.css
-@media (min-width: 576px) {
-  .flex-container,
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .flex-container,
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .flex-container,
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .flex-container,
-  .container {
-    max-width: 1140px;
-  }
-}
-
 /* 1: Header ==================== */
 header.header {
   position: fixed;
@@ -80,29 +54,28 @@ header.header {
     }
   }
 
-  nav {
-    justify-content: space-between;
-    align-content: center;
+  ul {
+    list-style-type: none;
 
-    .brand {
-      font-size: 38px;
-      line-height: 48px;
-      font-weight: 500;
-      margin-top: auto;
-      margin-bottom: auto;
+    &.navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
 
-      img {
-        height: 48px;
-        width: 48px;
-        margin-right: 8px;
+      .toggle {
+        order: 1;
       }
-    }
 
-    ul {
-      list-style-type: none;
+      .item {
+        width: 100%;
+        text-align: center;
+        order: 2;
+        display: none;
 
-      li {
-        float: left;
+        &.active {
+          display: block;
+        }
 
         a {
           line-height: 20px;
@@ -114,6 +87,20 @@ header.header {
             background: #eee;
             color: #1e77e2; //http://bada55.io/1e77e2
           }
+        }
+      }
+
+      .brand {
+        font-size: 38px;
+        line-height: 48px;
+        font-weight: 500;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        img {
+          height: 48px;
+          width: 48px;
+          margin-right: 8px;
         }
       }
     }
@@ -153,6 +140,9 @@ header.header {
 
 /* 3: Content =================== */
 div.content {
+  //margin-left: -15px;
+  //margin-right: -15px;
+
   /* 3.1 Sidebar ====*/
   .sidebar {
     flex-grow: 1;
@@ -275,7 +265,83 @@ footer.footer {
     color: #337ab7;
 
     &:hover {
-      color: #23527;
+      color: #23527c;
+    }
+  }
+}
+
+/* 5: Responsive ness */
+// Adapted from bootstrap-grid.css
+@media (min-width: 576px) {
+  .flex-container,
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .flex-container,
+  .container {
+    max-width: 720px;
+  }
+
+  header.header {
+    ul.navbar {
+      justify-content: center;
+
+      .brand {
+        flex: 1;
+      }
+
+      .toggle {
+        flex: 1;
+        order: 2;
+        text-align: right;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .flex-container,
+  .container {
+    max-width: 960px;
+  }
+
+  header.header {
+    ul.navbar {
+      .toggle {
+        display: none;
+      }
+
+      .brand {
+        order: 0;
+      }
+
+      .item {
+        order: 1;
+        display: block;
+        width: auto;
+      }
+
+      li {
+        padding: 15px 10px;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .flex-container,
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width: 992px) {
+  div.content {
+    flex-wrap: wrap;
+
+    .column {
+      flex: 100%;
+      max-width: 100%;
     }
   }
 }
