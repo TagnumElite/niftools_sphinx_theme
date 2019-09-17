@@ -1,0 +1,162 @@
+{%- if not embedded and docstitle %}
+  {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+  {%- set titlesuffix = "" %}
+{%- endif %}
+<!DOCTYPE html>
+{%- if html_tag %}
+{{ html_tag }}
+{%- else %}
+<html xmlns="http://www.w3.org/1999/xhtml" {% if language is not none %} lang="{{ language }}" {% endif %}>
+{%- endif %}
+    {%- block head %}
+    <head>
+        {%- if use_meta_charset or html5_doctype %}
+        <meta charset="{{ encoding }}" />
+        {%- else %}
+        <meta http-equiv="Content-Type" content="text/html; charset={{ encoding }}" />
+        {%- endif %}
+        {%- if not html5_doctype and not skip_ua_compatible %}
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        {%- endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {{ metatags }}
+        {%- block htmltitle %}
+        <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+        {%- endblock %}
+        {%- block css %}
+        <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+        <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
+        {%- for css in css_files %}
+        {%- if css|attr("filename") %}
+        {{ css_tag(css) }}
+        {%- else %}
+        <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+        {%- endif %}
+        {%- endfor %}
+        <link rel="stylesheet" href="{{ pathto('_static/css/custom.css', 1) }}" />
+        {%- endblock %}
+        {%- if not embedded %}
+        {%- if pageurl %}
+        <link rel="canonical" href="{{ pageurl }}" />
+        {%- endif %}
+        {%- endif %}
+        {%- if favicon %}
+        <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
+        {%- endif %}
+        {%- endif %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Condensed|Source+Sans+Pro" rel="stylesheet" />
+        <!--
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Source Sans Pro', sans-serif;
+        -->
+        {%- block linktags %}
+        {%- if hasdoc('about') %}
+        <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+        {%- endif %}
+        {%- if hasdoc('genindex') %}
+        <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+        {%- endif %}
+        {%- if hasdoc('search') %}
+        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+        {%- endif %}
+        {%- if hasdoc('copyright') %}
+        <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+        {%- endif %}
+        {%- if next %}
+        <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+        {%- endif %}
+        {%- if prev %}
+        <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+        {%- endif %}
+        {%- endblock %}
+        {%- block extrahead %} {% endblock %}
+    </head>
+    {%- endblock %}
+    {%- block header %}
+    <header class="header">
+        <ul class="flex-container navbar">
+            <li class="brand"><a href="{{ pathto(master_doc) }}">{{ project }}</a></li>
+            <li class="item"><a href="" class="hvr-underline-from-center">Home</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </header>
+    {%- endblock %}
+    {%- block geopattern %}
+    <div class="geopattern" data-pattern-id="Sphinx-TOC">
+        <div class="container">
+            <h1>{{ title }}</h1>
+            <p>Extra Info</p>
+        </div>
+    </div>
+    {%- endblock %}
+    {%-block content %}
+    <div class="content flex-container main" id="main-content">
+        {%- block sidebar %}
+        <div id="sidebar" class="sidebar column">
+      </div>
+        {%- endblock %}
+        {%- block article %}
+        <article class="article column" id="test-page">
+        {%- block body %}{%- endblock %}
+        </article>
+        {%- endblock %}
+    </div>
+    {%- endblock %}
+    {%- block footer %}
+    <footer class="footer flex-container">
+      <div class="left">
+          {%- if show_sphinx %}
+          {%- trans sphinx_version=sphinx_version|e %}
+          Powered by <a href="https://github.com/TagnumElite/niftools_sphinx_theme">Niftools Sphinx Theme</a> using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}
+          {%- endtrans %}
+          {%- elif last_updated %}
+          {%- trans last_updated=last_updated|e %}
+          Last updated on {{ last_updated }}.
+          {%- endtrans %}
+          {%- else %}
+          Some random placeholder
+          {%- endif %}
+      </div>
+      <div class="middle">
+          {%- if theme_host and theme_username and theme_repository %}
+          <a href="https://{{theme_host}}.com/{{theme_username}}/{{theme_repository}}"><i class="fab fa-{{theme_host.lower()}}"></i></a>
+          {%- else %}
+          <a href="javascript:window.scrollTo(0,0)">TOP</a>
+          {%- endif %}
+      </div>
+      <div class="right">
+          {%- if show_copyright %}
+          {%- if hasdoc('copyright') %}
+          {%- trans path=pathto('copyright'), copyright=copyright|e %}
+          &#169; <a href="{{ path }}">Copyright</a> {{ copyright }}.
+          {%- endtrans %}
+          {%- else %}
+          {%- trans copyright=copyright|e %}
+          &#169; Copyright {{ copyright }}.
+          {%- endtrans %}
+          {%- endif %}
+          {%- endif %}
+      </div>
+    </footer>
+    {%- endblock %}
+    {%- block scripts %}
+    <script
+        type="text/javascript"
+        id="documentation_options"
+        data-url_root="{{ pathto('', 1) }}"
+        src="{{ pathto('_static/documentation_options.js', 1) }}"
+    ></script>
+    {%- for js in script_files %}
+    {{ js_tag(js) }}
+    {%- endfor %}
+    <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/js/custom.js', 1) }}"></script>
+    {%- if theme_disqus_id and theme_disqus_count %}
+    <script id="dsq-count-scr" src="//{{ theme_disqus_id }}.disqus.com/count.js" async></script>
+    {%- endif %}
+    {%- endblock %}
+    </body>
+</html>
