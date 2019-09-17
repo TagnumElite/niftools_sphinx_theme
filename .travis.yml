@@ -1,0 +1,38 @@
+language: python
+dist: trusty
+sudo: true
+python:
+  - 3.6
+node_js:
+  - node
+
+cache:
+  - npm
+  - pip
+
+before_install:
+  - npm i -g npm
+  - sudo pip install --upgrade pip
+
+install:
+  - npm ci
+  - sudo pip install --upgrade -r requirements.txt
+  - sudo python setup.py install
+
+script:
+  - sudo python setup.py sdist bdist_wheel
+  - npm run build
+  - cd docs && make html && cd ..
+
+notifications:
+    email: false
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $github_token
+    local_dir: docs/_build/html
+    on:
+      branch: develop
+      repo: TagnumElite/niftools_sphinx_theme
+      python: 3.6

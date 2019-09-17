@@ -7,7 +7,8 @@
     "build": "npm run prettier && webpack --config webpack.production.js",
     "test": "ava --verbose test/*.js",
     "prettier": "prettier --write webpack.*.js *.config.js package.json src/**/*",
-    "prettier-check": "prettier --check webpack.*.js *.config.js package.json src/**/*"
+    "prettier-check": "prettier --check webpack.*.js *.config.js package.json src/**/*",
+    "docs": "cd docs && make html"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
