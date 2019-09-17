@@ -10,19 +10,20 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+from niftools_sphinx_theme import __version__
 from os.path import dirname, abspath
 import sys
+
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'NifTools Sphinx Theme'
-copyright = '2019, TagnumElite'
-author = 'TagnumElite'
+project = "NifTools Sphinx Theme"
+copyright = "2019, TagnumElite"
+author = "TagnumElite"
 
 # The full version, including alpha/beta/rc tags
-from niftools_sphinx_theme import __version__
 release = __version__
 
 
@@ -32,20 +33,20 @@ release = __version__
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.githubpages',
-    'sphinx.ext.intersphinx',
-    'niftools_sphinx_theme'
+    "sphinx.ext.githubpages",
+    "sphinx.ext.intersphinx",
+    "niftools_sphinx_theme",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
+intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -53,25 +54,23 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'niftools_sphinx_theme'
+html_theme = "niftools_sphinx_theme"
 # html_theme_path = [join(dirname(dirname(__file__)))]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {
-
-}
+html_theme_options = {}
 
 # Additional templates that should be rendered to HTML pages
 html_additional_pages = {
-    'about': 'about.html',
+    "about": "about.html",
     # 'blog': 'blog.html',
     # 'projects': 'projects.html',
 }
