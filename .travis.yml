@@ -5,11 +5,12 @@ matrix:
     - name: "Python 3.7 on Xenial Linux"
       python: 3.7
       node: node
-    - name: "Python 3.7 on macOS"
-      os: osx
-      osx_image: xcode11
-      language: shell
-      env: PYTHON=37
+    # It turns out that don't support python on macOS yet...... a pity
+    # - name: "Python 3.7 on macOS"
+    #  os: osx
+    #  osx_image: xcode11
+    #  language: shell
+    #  env: PYTHON=37
     - name: "Python 3.7 on Windows"
       os: windows
       language: shell
@@ -30,10 +31,10 @@ before_install:
 
 install:
   - npm ci
-  - python3 setup.py install || python setup.py install
+  - python setup.py install
 
 script:
-  - python3 setup.py sdist bdist_wheel || python3 setup.py sdist bdist_wheel
+  - python3 setup.py sdist bdist_wheel
   - npm run build
   - sphinx-build -b html ./docs/ ./docs/_build/html
 
