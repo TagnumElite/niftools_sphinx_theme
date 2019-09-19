@@ -19,7 +19,7 @@ matrix:
       os: windows
       language: shell
       before_install:
-        - choco install python node.install
+        - choco install python nodejs.install
         - refreshenv
         - npm i -g npm
         - python -m pip install --upgrade pip
