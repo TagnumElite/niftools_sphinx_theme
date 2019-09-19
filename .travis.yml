@@ -1,25 +1,37 @@
 language: python
-dist: xenial
-sudo: true
-python:
-  - 3.7
-node_js:
-  - node
+
+matrix:
+  include:
+    - name: "Python 3.7 on Xenial Linux"
+      python: 3.7
+      node: node
+    - name: "Python 3.7 on macOS"
+      os: osx
+      osx_image: xcode11
+      language: shell
+    - name: "Python 3.7 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python nodejs
+        - npm i -g npm
+        - python -m pip install --upgrade pip
 
 cache:
   - npm
   - pip
 
 before_install:
+  - nvm install 10
   - npm i -g npm
-  - pip install --upgrade pip
+  - pip3 install --upgrade pip
 
 install:
   - npm ci
-  - python setup.py install
+  - python3 setup.py install || python setup.py install
 
 script:
-  - python setup.py sdist bdist_wheel
+  - python3 setup.py sdist bdist_wheel || python3 setup.py sdist bdist_wheel
   - npm run build
   - cd docs && make html && cd ..
 

@@ -11,7 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 from niftools_sphinx_theme import __version__
-from os.path import dirname, abspath
+from os.path import dirname, abspath, join
 import sys
 
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
@@ -55,7 +55,7 @@ intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 # a list of builtin themes.
 #
 html_theme = "niftools_sphinx_theme"
-# html_theme_path = [join(dirname(dirname(__file__)))]
+html_theme_path = [join(dirname(dirname(__file__)))]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
