@@ -9,11 +9,17 @@ matrix:
       os: osx
       osx_image: xcode11
       language: shell
+      before_install:
+        - pyenv global 3.7.4
+        - nvm install 10
+        - npm i -g npm
+        - python -m pip install --upgrade pip
     - name: "Python 3.7 on Windows"
       os: windows
       language: shell
       before_install:
-        - choco install python nodejs
+        - choco install python nvm
+        - nvm install 10
         - npm i -g npm
         - python -m pip install --upgrade pip
 
