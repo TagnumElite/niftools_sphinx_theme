@@ -16,7 +16,6 @@ before_install:
 
 install:
   - npm ci
-  - sudo pip install --upgrade -r requirements.txt
   - sudo python setup.py install
 
 script:
