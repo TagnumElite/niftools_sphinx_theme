@@ -2,7 +2,7 @@ language: python
 dist: trusty
 sudo: true
 python:
-  - 3.6
+  - 3.7
 node_js:
   - node
 
@@ -12,14 +12,14 @@ cache:
 
 before_install:
   - npm i -g npm
-  - sudo pip install --upgrade pip
+  - pip install --upgrade pip
 
 install:
   - npm ci
-  - sudo python setup.py install
+  - python setup.py install
 
 script:
-  - sudo python setup.py sdist bdist_wheel
+  - python setup.py sdist bdist_wheel
   - npm run build
   - cd docs && make html && cd ..
 
@@ -34,4 +34,4 @@ deploy:
     on:
       branch: develop
       repo: TagnumElite/niftools_sphinx_theme
-      python: 3.6
+      python: 3.7
