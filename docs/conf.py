@@ -78,7 +78,7 @@ html_theme_options = {
 
 # Additional templates that should be rendered to HTML pages
 html_additional_pages = {
-    "about": "about.html",
+    # "about": "about.html",
     # 'blog': 'blog.html',
     # 'projects': 'projects.html',
 }
