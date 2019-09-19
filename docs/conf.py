@@ -66,7 +66,15 @@ html_static_path = ["_static"]
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {}
+html_theme_options = {
+    "navs": {
+        "Home": "https://tagnumelite.com",
+        "Blog": "blog",
+        "Projects": "https://github.com/TagnumElite?tab=repositories",
+        "Documenation": "",
+        "About": "about",
+    }
+}
 
 # Additional templates that should be rendered to HTML pages
 html_additional_pages = {

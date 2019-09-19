@@ -1,3 +1,7 @@
+:title: Welcome!
+:description: Home page of
+:geopattern: Welcome!
+
 Welcome to NifTools Sphinx Theme's documentation!
 =================================================
 

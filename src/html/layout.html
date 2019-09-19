@@ -3,6 +3,17 @@
 {%- else %}
   {%- set titlesuffix = "" %}
 {%- endif %}
+{% if meta is defined and meta is not none %}
+{% set meta_exists = True %}
+{% else %}
+{% set meta_exists = False %}
+{% endif %}
+
+{# <!-- TODO: Replace placeholders --> #}
+{% set geo_title = meta['title'] if meta_exists and meta['title'] else "Title Placeholder" %}
+{% set description = meta['description'] if meta_exists and meta['description'] else "Desc Placeholder" %}
+{% set geopattern = meta['geopattern'] if meta_exists and meta['geopattern'] else title %}
+
 <!DOCTYPE html>
 {%- if html_tag %}
 {{ html_tag }}
@@ -79,16 +90,32 @@
     <header class="header">
         <ul class="flex-container navbar">
             <li class="brand"><a href="{{ pathto(master_doc) }}">{{ project }}</a></li>
-            <li class="item"><a href="" class="hvr-underline-from-center">Home</a></li>
+            {% if theme_navs %}
+            {% for link_name, link_ref in theme_navs.items() %}
+            {% if link_ref == "" %}
+            {% set link = pathto(master_doc) %}
+            {% elif link_ref.startswith("http") %}
+            {% set link = link_ref %}
+            {% else %}
+            {% set link = pathto(link_ref) %}
+            {% endif %}
+            <li class="item"><a href="{{ link }}" class="hvr-underline-from-center">{{ link_name }}</a></li>
+            {% endfor %}
+            {% else %}
+            <li class="item"><a href="{{ pathto(master_doc) }}" class="hvr-underline-from-center">Home</a></li>
+            {% if hasdoc('about') %}
+            <li class="item"><a href="{{ pathto('about') }}" class="hvr-underline-from-center">About</a></li>
+            {% endif %}
+            {% endif %}
             <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
     </header>
     {%- endblock %}
     {%- block geopattern %}
-    <div class="geopattern" data-pattern-id="Sphinx-TOC">
+    <div class="geopattern" data-pattern-id="{{ geopattern }}">
         <div class="container">
-            <h1>{{ title }}</h1>
-            <p>Extra Info</p>
+            <h1>{{ geo_title }}</h1>
+            <p>{{ description }}</p>
         </div>
     </div>
     {%- endblock %}
