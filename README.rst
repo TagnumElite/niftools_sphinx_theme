@@ -3,7 +3,7 @@ NifTools Sphinx Theme
 *********************
 
 .. image:: https://img.shields.io/travis/com/TagnumElite/niftools_sphinx_theme/develop
-   :target: https://travis-ci.org/TagnumElite/niftools_sphinx_theme
+   :target: https://travis-ci.com/TagnumElite/niftools_sphinx_theme
    :alt: Build Status
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
