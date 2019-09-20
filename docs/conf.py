@@ -73,7 +73,8 @@ html_theme_options = {
         "Projects": "https://github.com/TagnumElite?tab=repositories",
         "Documenation": "",
         "About": "about",
-    }
+    },
+    "source_code": "https://github.com/TagnumElite/niftools_sphinx_theme",
 }
 
 # Additional templates that should be rendered to HTML pages

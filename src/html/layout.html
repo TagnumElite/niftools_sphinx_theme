@@ -14,6 +14,8 @@
 {% set description = meta['description'] if meta_exists and meta['description'] else "Desc Placeholder" %}
 {% set geopattern = meta['geopattern'] if meta_exists and meta['geopattern'] else title %}
 
+{% set nav_hover_effect = "hvr-" + theme_nav_hover_effect if theme_nav_hover_effect else "hvr-underline-from-center" %}
+
 <!DOCTYPE html>
 {%- if html_tag %}
 {{ html_tag }}
@@ -88,22 +90,26 @@
     {%- block header %}
     <header class="header">
         <ul class="flex-container navbar">
-            <li class="brand"><a href="{{ pathto(master_doc) }}">{{ project }}</a></li>
+            {% set home_ref = theme_brand_link if theme_brand_link else pathto(master_doc) %}
+            <li class="brand"><a href="{{ home_ref }}">{{ project }}</a></li>
             {% if theme_navs %}
             {% for link_name, link_ref in theme_navs.items() %}
-            {% if link_ref == "" %}
-            {% set link = pathto(master_doc) %}
-            {% elif link_ref.startswith("http") %}
-            {% set link = link_ref %}
-            {% else %}
-            {% set link = pathto(link_ref) %}
-            {% endif %}
-            <li class="item"><a href="{{ link }}" class="hvr-underline-from-center">{{ link_name }}</a></li>
+                {% if link_ref == "" %}
+                    {% set link = pathto(master_doc) %}
+                {% elif hasdoc(link_ref) %}
+                    {% set link = pathto(link_ref) %}
+                {% else %}
+                    {% set link = link_ref %}
+                {% endif %}
+            <li class="item"><a href="{{ link }}" class="{{ nav_hover_effect }}">{{ link_name }}</a></li>
             {% endfor %}
             {% else %}
-            <li class="item"><a href="{{ pathto(master_doc) }}" class="hvr-underline-from-center">Home</a></li>
+            <li class="item"><a href="{{ home_ref }}" class="{{ nav_hover_effect }}">Home</a></li>
+            {% if theme_brand_link %}
+            <li class="item"><a href="{{ pathto(master_doc) }}" class="{{ nav_hover_effect }}">Documentation</a></li>
+            {% endif %}
             {% if hasdoc('about') %}
-            <li class="item"><a href="{{ pathto('about') }}" class="hvr-underline-from-center">About</a></li>
+            <li class="item"><a href="{{ pathto('about') }}" class="{{ nav_hover_effect }}">About</a></li>
             {% endif %}
             {% endif %}
             <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
@@ -118,10 +124,16 @@
         </div>
     </div>
     {%- endblock %}
-    {%-block content %}
+    {%- block content %}
     <div class="content flex-container main" id="main-content">
         {%- block sidebar %}
         <div id="sidebar" class="sidebar column">
+        <div class="sidebar_wrapper">
+          <div class="local-toc" id="local-toc">
+            {% include "localtoc.html" %}
+          </div>
+            {% include "badges.html" %}
+        </div>
       </div>
         {%- endblock %}
         {%- block article %}
@@ -147,8 +159,8 @@
           {%- endif %}
       </div>
       <div class="middle">
-          {%- if theme_host and theme_username and theme_repository %}
-          <a href="https://{{theme_host}}.com/{{theme_username}}/{{theme_repository}}"><i class="fab fa-{{theme_host.lower()}}"></i></a>
+          {%- if theme_source_code and theme_source_code_icon %}
+          <a href="{{theme_source_code}}"><i class="fab fa-{{theme_source_code_icon.lower()}}"></i></a>
           {%- else %}
           <a href="javascript:window.scrollTo(0,0)">TOP</a>
           {%- endif %}
