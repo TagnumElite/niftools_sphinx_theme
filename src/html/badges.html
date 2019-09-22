@@ -27,3 +27,8 @@
 {% macro dyn_badge(data_type, label, data_url, query, color, prefix, suffix, style="flat", logo="", alt=None) %}
 {{ badge("badge/dynamic/" + data_type + "url=" + data_url + "&label=" + label + "&query=" + query + "&color=" + color|string + "&prefix=" + prefix + "&suffix=" + suffix + '&', '&', style, logo, alt) }}
 {% endmacro %}
+
+<div class="badges">
+    {% block badges %}
+    {% endblock %}
+</div>

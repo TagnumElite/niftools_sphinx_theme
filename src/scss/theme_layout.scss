@@ -193,6 +193,13 @@ div.content {
         }
       }
     }
+
+    .badges {
+      ol {
+        list-style: none;
+        padding-left: 0;
+      }
+    }
   }
 
   /* 3.2 Article ====*/
