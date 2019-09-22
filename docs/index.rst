@@ -1,6 +1,7 @@
-:title: Welcome!
-:description: Home page of
-:geopattern: Welcome!
+:title: Homepage
+:description: Built: |today|
+:description_icon: battery-full
+:geopattern: index
 
 Welcome to NifTools Sphinx Theme's documentation!
 =================================================

@@ -10,7 +10,7 @@ NifTools Sphinx Theme
    :alt: Code Style: Black
 
 NifTools_ Sphinx_ theme was created to mimick the NifTools_ website,
-which is running a modified version of YummyJekyl_.
+which is running a `modified version <https://github.com/niftools/niftools.github.io>`_ of Yummy-Jekyl_.
 
 Features
 ========
@@ -42,7 +42,7 @@ and copy all CSS_, JavaScript_ and fonts to the static folder.
 
 .. _Sphinx: http://www.sphinx-doc.org
 .. _NifTools: https://niftools.org
-.. _YummyJekyl: https://github.com/niftools/niftools.github.io
+.. _Yummy-Jekyl: https://github.com/DONGChuan/Yummy-Jekyll/
 .. _CSS: https://developer.mozilla.org/en-US/docs/Web/CSS
 .. _JavaScript: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 .. _webpack: https://webpack.js.org/

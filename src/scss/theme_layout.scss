@@ -134,6 +134,11 @@ header.header {
       height: 33px;
       display: inline-block;
       font-weight: 400;
+
+      i {
+        font-size: 1.2em;
+        padding-right: 2px;
+      }
     }
   }
 }
