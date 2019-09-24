@@ -1,7 +1,7 @@
 :title: Homepage
 :description: Built: |today|
 :description_icon: battery-full
-:geopattern: index
+:geopattern: v |release|
 
 Welcome to NifTools Sphinx Theme's documentation!
 =================================================
