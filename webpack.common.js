@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         from: "./src/templates/**/*.html",
-        to: ".",
+        to: "./templates/",
         force: true,
         toType: "dir",
         flatten: true,
