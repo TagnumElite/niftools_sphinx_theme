@@ -38,6 +38,24 @@ Templates
 Installation
 ============
 
+This theme can be found on PyPi_ and can be installed through pip
+
+.. code:: console
+
+    pip install --upgrade niftools_sphinx_theme
+
+Inside your sphinx ``conf.py`` file you must put this inside
+
+.. code:: python
+
+    import niftools_sphinx_theme
+
+    extensions = [
+        "niftools_sphinx_theme",
+        ...
+    ]
+
+    html_theme = "niftools_sphinx_theme"
 
 Customization
 =============
@@ -50,6 +68,8 @@ I include the built files so all you have to do is run sphinx,
 but if you wish to work on this project we use webpack_ to compile
 and copy all CSS_, JavaScript_ and fonts to the static folder.
 
+
+.. _PyPi: https://pypi.python.org/pypi/niftools_sphinx_theme
 .. _Sphinx: http://www.sphinx-doc.org
 .. _NifTools: https://niftools.org
 .. _Yummy-Jekyl: https://github.com/DONGChuan/Yummy-Jekyll/

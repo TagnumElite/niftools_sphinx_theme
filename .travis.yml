@@ -51,3 +51,10 @@ deploy:
       branch: develop
       repo: TagnumElite/niftools_sphinx_theme
       python: 3.7
+  - provider: pypi
+    user: __token__
+    password: $pypi_token
+    on:
+      branch: master
+      python: 3.7
+      repo: TagnumElite/niftools_sphinx_theme
