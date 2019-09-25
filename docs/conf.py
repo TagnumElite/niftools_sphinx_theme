@@ -10,7 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-from niftools_sphinx_theme import __version__
+import niftools_sphinx_theme
 from os.path import dirname, abspath, join
 import sys
 
@@ -24,7 +24,7 @@ copyright = "2019, TagnumElite"
 author = "TagnumElite"
 
 # The full version, including alpha/beta/rc tags
-release = __version__
+release = niftools_sphinx_theme.__version__
 
 
 # -- General configuration ---------------------------------------------------

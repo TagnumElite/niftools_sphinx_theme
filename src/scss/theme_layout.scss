@@ -155,6 +155,8 @@ div.content {
   /* 3.1 Sidebar ====*/
   .sidebar {
     flex: 2;
+    margin-right: 5px;
+    margin-left: 5px;
     will-change: min-height;
 
     .wrapper {
@@ -221,6 +223,8 @@ div.content {
   /* 3.2 Article ====*/
   .article {
     flex: 8;
+    margin-right: 5px;
+    margin-left: 5px;
 
     a.headerlink {
       padding-left: 0.1em;

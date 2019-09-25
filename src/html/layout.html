@@ -50,6 +50,7 @@
         {%- endfor %}
         <link rel="stylesheet" href="{{ pathto('_static/css/custom.css', 1) }}" />
         {%- endblock %}
+        {%- block extra_css %}{% endblock %}
         {%- if not embedded %}
         {%- if pageurl %}
         <link rel="canonical" href="{{ pageurl }}" />
@@ -132,7 +133,12 @@
         <div class="sidebar_wrapper">
           <div class="local-toc" id="local-toc">
             {% include "localtoc.html" %}
+          </div>{# <!-- TODO: Figure out wether or not to use toc or toctree here -->
+            {% if 'singlehtml' not in builder %}
+          <div class="global-toc">
+                {% include "globaltoc.html" %}
           </div>
+            {% endif %}#}
             {% include "badges.html" %}
         </div>
       </div>

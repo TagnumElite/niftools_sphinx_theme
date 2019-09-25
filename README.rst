@@ -2,15 +2,25 @@
 NifTools Sphinx Theme
 *********************
 
+.. image:: https://img.shields.io/pypi/v/niftools_sphinx_theme.svg
+   :target: https://pypi.python.org/pypi/niftools_sphinx_theme
+   :alt: PyPi Version
 .. image:: https://img.shields.io/travis/com/TagnumElite/niftools_sphinx_theme/develop
    :target: https://travis-ci.com/TagnumElite/niftools_sphinx_theme
    :alt: Build Status
+.. image:: https://img.shields.io/pypi/l/niftools_sphinx_theme.svg
+   :target: https://pypi.python.org/pypi/niftools_sphinx_theme/
+   :alt: License
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
    :alt: Code Style: Black
 
-NifTools_ Sphinx_ theme was created to mimick the NifTools_ website,
+NifTools_ Sphinx_ theme was created to mimic the NifTools_ website,
 which is running a `modified version <https://github.com/niftools/niftools.github.io>`_ of Yummy-Jekyl_.
+
+This theme is still in planning/development stage!
+Please wait until ver `1.0.0` before using this theme!
+
 
 Features
 ========
