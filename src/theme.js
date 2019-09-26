@@ -1,5 +1,4 @@
 var GeoPattern = require("geopattern");
-//var StickySidebar = require("sticky-sidebar");
 var ClipboardJS = require("clipboard");
 var Gumshoe = require("gumshoejs");
 
@@ -103,14 +102,6 @@ function ready() {
       return header.getBoundingClientRect().height + 10;
     }
   });
-
-  //TODO: Update the plugin
-  /*var sidebar = new StickySidebar("#sidebar", {
-    containerSelector: "#main-content",
-    innerWrapperSelector: ".sidebar_wrapper",
-    topSpacing: 80,
-    bottomSpacing: 20
-  });*/
 
   // Find all elements with class geopattern and give them a geopattern
   // If they don't have
