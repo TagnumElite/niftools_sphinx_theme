@@ -69,13 +69,14 @@ var getScrollY = function() {
     : document.body.scrollTop;
 };
 
+var header = sel1(".header");
 var scroll = function() {
   var scroll_pos = getScrollY();
 
-  if (scroll_pos > 70) {
-    sel(".header")[0].classList.add("scrolled");
+  if (scroll_pos > header.clientHeight) {
+    header.classList.add("scrolled");
   } else {
-    sel(".header")[0].classList.remove("scrolled");
+    header.classList.remove("scrolled");
   }
 };
 
