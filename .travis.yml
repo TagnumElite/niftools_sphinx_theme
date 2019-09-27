@@ -35,8 +35,8 @@ install:
   - python setup.py install
 
 script:
-  - python setup.py sdist bdist_wheel
   - npm run build
+  - python setup.py sdist bdist_wheel
   - sphinx-build -b html ./docs/ ./docs/_build/html
 
 notifications:
