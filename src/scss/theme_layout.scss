@@ -37,6 +37,7 @@ header.header {
   background: #fff;
   color: #000;
   margin: 40px 0 30px;
+  z-index: 100;
 
   &.scrolled {
     margin-top: 0;
@@ -155,14 +156,11 @@ div.content {
   /* 3.1 Sidebar ====*/
   .sidebar {
     flex: 2;
-    margin-right: 5px;
-    margin-left: 5px;
-    will-change: min-height;
+    padding: 0 5px;
+    margin: 0 5px;
 
-    .wrapper {
-      transform: translate(0, 0); /* For browsers don't support translate3d. */
-      transform: translate3d(0, 0, 0);
-      will-change: position, transform;
+    .sidebar_wrapper {
+      position: sticky;
     }
 
     .local-toc,
@@ -223,8 +221,8 @@ div.content {
   /* 3.2 Article ====*/
   .article {
     flex: 8;
-    margin-right: 5px;
-    margin-left: 5px;
+    padding: 0 5px;
+    margin: 0 5px;
 
     a.headerlink {
       padding-left: 0.1em;
