@@ -18,7 +18,7 @@
 {% set geo_title = meta.title if meta_exists and meta.title else title|striptags %}
 {% set description = meta.description if meta_exists and meta.description else description_fallback %}
 {% set description_icon = meta.description_icon if meta_exists and meta.description_icon else "book" %}
-{% set geopattern = meta.geopattern if meta_exists and meta.geopattern else title|e %}
+{% set geopattern = meta.geopattern if meta_exists and meta.geopattern else title|striptags %}
 
 {% set nav_hover_effect = "hvr-" + theme_nav_hover_effect if theme_nav_hover_effect else "hvr-underline-from-center" %}
 
