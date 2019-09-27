@@ -78,6 +78,9 @@ var getScrollY = function() {
 };
 
 var header = sel1(".header");
+var sidebar = sel1(".sidebar");
+var sidebar_wrapper = sel1(".sidebar_wrapper");
+
 var scroll = function() {
   var scroll_pos = getScrollY();
 
@@ -85,6 +88,25 @@ var scroll = function() {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
+  }
+
+  if (sidebar && sidebar_wrapper) {
+    // Get height of sidebar wrapper
+    var height = getHeight(sidebar_wrapper);
+    // Get offset of sidebar from top
+    var offset = sidebar.offsetTop;
+    // Find the bottom of the window from scroll position and window inner height
+    var window_bottom = scroll_pos + window.innerHeight;
+    // Get offset of sidebar wrapper from top
+    var top = sidebar_wrapper.offsetTop;
+    // Get bottom of sidebar wrapper by adding top plus height
+    var bottom = top + height;
+
+    if (height < window.innerHeight + header.clientHeight) {
+      // If so, just go 10px below header.
+      sidebar_wrapper.style.top = header.clientHeight + 10 + "px";
+    } else {
+    }
   }
 };
 
