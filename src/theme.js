@@ -10,6 +10,10 @@ function sel1(query) {
   return document.querySelector(query);
 }
 
+function clamp(min, value, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
 function addClass(ele, cls) {
   if (ele.classList) {
     ele.classList.add(cls);
@@ -59,6 +63,10 @@ function getChildren(ele, tp) {
   });
 }
 
+function getHeight(ele) {
+  return parseFloat(getComputedStyle(ele, null).height.replace("px", ""));
+}
+
 var getScrollY = function() {
   var supportPageOffset = window.pageYOffset !== undefined;
   var isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
@@ -94,6 +102,7 @@ function makeid(length) {
 
 function ready() {
   document.addEventListener("scroll", scroll);
+  scroll();
 
   var header = sel(".header")[0];
 
