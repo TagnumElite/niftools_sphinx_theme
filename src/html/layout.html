@@ -9,11 +9,16 @@
 {% set meta_exists = False %}
 {% endif %}
 
-{# <!-- TODO: Replace placeholders --> #}
-{% set geo_title = meta.title if meta_exists and meta.title else title %}
-{% set description = meta.description if meta_exists and meta.description else "Desc Placeholder" %}
+{%- if last_updated %}
+{%- set description_fallback = "Last Built: " + last_updated %}
+{%- else %} {# <!-- TODO: Replace placeholders --> #}
+{%- set description_fallback = "Description Placeholder" %}
+{%- endif %}
+
+{% set geo_title = meta.title if meta_exists and meta.title else title|striptags %}
+{% set description = meta.description if meta_exists and meta.description else description_fallback %}
 {% set description_icon = meta.description_icon if meta_exists and meta.description_icon else "book" %}
-{% set geopattern = meta.geopattern if meta_exists and meta.geopattern else title %}
+{% set geopattern = meta.geopattern if meta_exists and meta.geopattern else title|e %}
 
 {% set nav_hover_effect = "hvr-" + theme_nav_hover_effect if theme_nav_hover_effect else "hvr-underline-from-center" %}
 
@@ -54,6 +59,14 @@
         {%- if not embedded %}
         {%- if pageurl %}
         <link rel="canonical" href="{{ pageurl }}" />
+        {%- endif %}
+        {%- if use_opensearch %}
+        <link
+            rel="search"
+            type="application/opensearchdescription+xml"
+            title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
+            href="{{ pathto('_static/opensearch.xml', 1) }}"
+        />
         {%- endif %}
         {%- if favicon %}
         <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
@@ -129,19 +142,20 @@
     {%- block content %}
     <div class="content flex-container main" id="main-content">
         {%- block sidebar %}
+        {%- if not embedded %}
         <div id="sidebar" class="sidebar column">
         <div class="sidebar_wrapper">
-          <div class="local-toc" id="local-toc">
-            {% include "localtoc.html" %}
-          </div>{# <!-- TODO: Figure out wether or not to use toc or toctree here -->
-            {% if 'singlehtml' not in builder %}
-          <div class="global-toc">
-                {% include "globaltoc.html" %}
-          </div>
-            {% endif %}#}
-            {% include "badges.html" %}
+            {%- if sidebars %}
+                {%- for sidebar_template in sidebars %}
+                {%- include sidebar_template %}
+                {%- endfor %}
+            {%- else %}
+            {%- include "localtoc.html" %}
+            {%- include "badges.html" %}
+            {%- endif %}
         </div>
       </div>
+        {%- endif %}
         {%- endblock %}
         {%- block article %}
         <article class="article column" id="test-page">
