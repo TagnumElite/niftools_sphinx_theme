@@ -2,8 +2,40 @@
   --admonition-padding: 12px;
 }
 
-div.clearer {
+div.clearer,
+div.section {
   clear: both;
+}
+
+/* -- Relations --*/
+table.relations {
+  margin: 8px 0;
+
+  &,
+  th,
+  td {
+    border: solid 1px #c6c6c6;
+    border-collapse: collapse;
+  }
+
+  tr {
+    text-align: center;
+
+    th {
+      color: #535353;
+      background: #eee;
+    }
+
+    td {
+      a {
+        color: #337ab7;
+
+        &:hover {
+          color: #23527c;
+        }
+      }
+    }
+  }
 }
 
 .admonition {
