@@ -78,8 +78,8 @@ var getScrollY = function() {
 };
 
 var header = sel1(".header");
-var sidebar = sel1(".sidebar");
-var sidebar_wrapper = sel1(".sidebar_wrapper");
+var sidebar = sel1(".sphinxsidebar");
+var sidebar_wrapper = sel1(".sphinxsidebarwrapper");
 
 var scroll = function() {
   var scroll_pos = getScrollY();
@@ -102,6 +102,7 @@ var scroll = function() {
     // Get bottom of sidebar wrapper by adding top plus height
     var bottom = top + height;
 
+    // Does the sidebar fit in the window + header?
     if (height < window.innerHeight + header.clientHeight) {
       // If so, just go 10px below header.
       sidebar_wrapper.style.top = header.clientHeight + 10 + "px";
@@ -126,13 +127,12 @@ function ready() {
   document.addEventListener("scroll", scroll);
   scroll();
 
-  var header = sel(".header")[0];
-
   // Todo: Style this nicely
   var spy = new Gumshoe("#local-toc ul a", {
     offset: function() {
       return header.getBoundingClientRect().height + 10;
-    }
+    },
+    nested: true
   });
 
   // Find all elements with class geopattern and give them a geopattern

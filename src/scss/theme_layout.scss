@@ -9,10 +9,6 @@ html {
 
 a {
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 ul {
@@ -154,12 +150,12 @@ div.content {
   //margin-right: -15px;
 
   /* 3.1 Sidebar ====*/
-  .sidebar {
+  .sphinxsidebar {
     flex: 2;
     padding: 0 5px;
     margin: 0 5px;
 
-    .sidebar_wrapper {
+    .sphinxsidebarwrapper {
       position: sticky;
     }
 
@@ -178,7 +174,8 @@ div.content {
             display: none;
           }
 
-          &:hover {
+          &:hover,
+          &.active {
             ul {
               display: block;
             }

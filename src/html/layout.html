@@ -11,7 +11,7 @@
 
 {%- if last_updated %}
 {%- set description_fallback = "Last Built: " + last_updated %}
-{%- else %} {# <!-- TODO: Replace placeholders --> #}
+{%- else %} {# <!-- TODO: Replace placeholder --> #}
 {%- set description_fallback = "Description Placeholder" %}
 {%- endif %}
 
@@ -143,8 +143,8 @@
     <div class="content flex-container main" id="main-content">
         {%- block sidebar %}
         {%- if not embedded %}
-        <div id="sidebar" class="sidebar column">
-        <div class="sidebar_wrapper">
+        <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
             {%- if sidebars %}
                 {%- for sidebar_template in sidebars %}
                 {%- include sidebar_template %}
@@ -162,6 +162,7 @@
         {%- block body %}{%- endblock %}
         </article>
         {%- endblock %}
+        <div class="clearer"></div>
     </div>
     {%- endblock %}
     {%- block footer %}
