@@ -8,7 +8,7 @@ import logging
 if False:  # Required for typing, not for code
     import sphinx.application
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 
 def get_theme_path():
