@@ -9,60 +9,60 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 // Default - Generic admonition
 //$admonition-color: #fff; Not Used - Yet
-$admonition-background: #f2a333;
+$admonition-background: #ececec;
 $admonition-title-color: #000;
-$admonition-title-background: #658756;
+$admonition-title-background: #cacaca;
 
 // Attention
 //$admonition-attention-color: $admonition-color; Not Used - Yet
-$admonition-attention-background: #fff;
+$admonition-attention-background: $admonition-background;
 $admonition-attention-title-color: $admonition-title-color;
-$admonition-attention-title-background: #fff;
+$admonition-attention-title-background: $admonition-title-background;
 
 // Caution
 //$admonition-caution-color: $admonition-color; Not Used - Yet
-$admonition-caution-background: $admonition-attention-background;
+$admonition-caution-background: #ffff76;
 $admonition-caution-title-color: $admonition-title-color;
-$admonition-caution-title-background: $admonition-attention-title-background;
+$admonition-caution-title-background: #caca40;
 
 // Danger
 //$admonition-danger-color: $admonition-color; Not Used - Yet
-$admonition-danger-background: #de4000;
+$admonition-danger-background: #ff5d52;
 $admonition-danger-title-color: $admonition-title-color;
-$admonition-danger-title-background: #ee0000;
+$admonition-danger-title-background: #bf3f36;
 
 // Error
 //$admonition-error-color: $admonition-color; Not Used - Yet
-$admonition-error-background: $admonition-background;
-$admonition-error-title-color: $admonition-title-color;
-$admonition-error-title-background: $admonition-title-background;
+$admonition-error-background: $admonition-danger-background;
+$admonition-error-title-color: $admonition-danger-title-color;
+$admonition-error-title-background: $admonition-danger-title-background;
 
 // Hint
 //$admonition-hint-color: $admonition-color; Not Used - Yet
-$admonition-hint-background: $admonition-background;
-$admonition-hint-title-color: $admonition-title-color;
-$admonition-hint-title-background: $admonition-title-background;
+$admonition-hint-background: $admonition-attention-background;
+$admonition-hint-title-color: $admonition-attention-title-color;
+$admonition-hint-title-background: $admonition-attention-title-background;
 
 // Important
 //$admonition-important-color: $admonition-color; Not Used - Yet
-$admonition-important-background: $admonition-background;
+$admonition-important-background: #fc8;
 $admonition-important-title-color: $admonition-title-color;
-$admonition-important-title-background: $admonition-title-background;
+$admonition-important-title-background: #ffa834;
 
 // Note
 //$admonition-note-color: $admonition-color; Not Used - Yet
-$admonition-note-background: $admonition-background;
-$admonition-note-title-color: $admonition-title-color;
-$admonition-note-title-background: $admonition-title-background;
+$admonition-note-background: $admonition-attention-background;
+$admonition-note-title-color: $admonition-attention-title-color;
+$admonition-note-title-background: $admonition-attention-title-background;
 
 // Tip
 //$admonition-tip-color: $admonition-color; Not Used - Yet
-$admonition-tip-background: $admonition-background;
+$admonition-tip-background: $admonition-important-background;
 $admonition-tip-title-color: $admonition-title-color;
-$admonition-tip-title-background: $admonition-title-background;
+$admonition-tip-title-background: $admonition-important-title-background;
 
 // Warning
 //$admonition-warning-color: $admonition-color; Not Used - Yet
-$admonition-warning-background: #ff8645;
-$admonition-warning-title-color: $admonition-title-color;
-$admonition-warning-title-background: #ff5900;
+$admonition-warning-background: $admonition-caution-background;
+$admonition-warning-title-color: $admonition-caution-title-color;
+$admonition-warning-title-background: $admonition-caution-title-background;
