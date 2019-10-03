@@ -180,8 +180,9 @@ div.content {
           }
 
           & > a {
-            border-left: solid #1ce;
             color: purple;
+            border-left: solid 2px purple;
+            padding-left: 10px;
           }
         }
       }
