@@ -11,8 +11,8 @@
 
 {%- if last_updated %}
 {%- set description_fallback = "Last Built: " + last_updated %}
-{%- else %} {# <!-- TODO: Replace placeholder --> #}
-{%- set description_fallback = "Description Placeholder" %}
+{%- else %} {# <!-- TODO: Figure out if there should be a placeholder --> #}
+{%- set description_fallback = "" %}
 {%- endif %}
 
 {% set geo_title = meta.title if meta_exists and meta.title else title|striptags %}
