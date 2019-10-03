@@ -80,6 +80,7 @@ var getScrollY = function() {
 var header = sel1(".header");
 var sidebar = sel1(".sphinxsidebar");
 var sidebar_wrapper = sel1(".sphinxsidebarwrapper");
+var header_offset = header.getBoundingClientRect().height + 10;
 
 var scroll = function() {
   var scroll_pos = getScrollY();
@@ -111,6 +112,30 @@ var scroll = function() {
   }
 };
 
+var previous_hash;
+
+function hash() {
+  if (window.location.hash) {
+    var hash = window.location.hash,
+      id = hash.slice(1),
+      elem = document.getElementById(id),
+      hashlink =
+        "<div id=" +
+        id +
+        ` style="height: ${header_offset}px; margin-top: -${header_offset}px; visibility: hidden;"></div>`;
+
+    if (previous_hash) {
+      previous_hash.nextElementSibling.id = previous_hash.id;
+      previous_hash.remove();
+    }
+
+    elem.removeAttribute("id");
+    elem.insertAdjacentHTML("beforebegin", hashlink);
+    previous_hash = elem.previousElementSibling;
+    window.location.hash = hash;
+  }
+}
+
 // Random string generator
 function makeid(length) {
   var result = "";
@@ -126,11 +151,13 @@ function makeid(length) {
 function ready() {
   document.addEventListener("scroll", scroll);
   scroll();
+  window.addEventListener("hashchange", hash);
+  hash();
 
   // Todo: Style this nicely
   var spy = new Gumshoe("#local-toc ul a", {
     offset: function() {
-      return header.getBoundingClientRect().height + 10;
+      return header_offset;
     },
     nested: true
   });
