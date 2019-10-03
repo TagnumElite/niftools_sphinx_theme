@@ -25,6 +25,10 @@ Please wait until ver `1.0.0` before using this theme!
 Features
 ========
 
+Supports these extensions:
+
+- autodoc_
+- viewcode_
 
 Templates
 ^^^^^^^^^
@@ -60,6 +64,7 @@ Inside your sphinx ``conf.py`` file you must put this inside
 Customization
 =============
 
+This theme was created with customization is mind.
 
 Development
 ===========
@@ -70,6 +75,8 @@ and copy all CSS_, JavaScript_ and fonts to the static folder.
 
 
 .. _PyPi: https://pypi.python.org/pypi/niftools_sphinx_theme
+.. _autodoc: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+.. _viewcode: https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html
 .. _Sphinx: http://www.sphinx-doc.org
 .. _NifTools: https://niftools.org
 .. _Yummy-Jekyl: https://github.com/DONGChuan/Yummy-Jekyll/
