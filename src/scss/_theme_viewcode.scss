@@ -1,0 +1,35 @@
+/*
+SCSS for Sphinx Builtin Extension: viewcode
+See more: https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html
+*/
+
+a.reference {
+  span.viewcode-link {
+    visibility: none;
+    font-size: 0;
+
+    &:hover {
+      color: lightblue;
+    }
+
+    &::before {
+      visibility: visible;
+      padding: 0 2px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 1rem;
+    }
+  }
+
+  &.internal {
+    span.viewcode-link::before {
+      content: "\f07c";
+    }
+  }
+
+  &.external {
+    span.viewcode-link::before {
+      content: "\f35d";
+    }
+  }
+}

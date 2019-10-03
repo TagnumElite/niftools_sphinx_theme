@@ -1,0 +1,48 @@
+/*
+SCSS for Sphinx Builtin Extension: autodoc
+See more: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+*/
+
+dl.class {
+  dt {
+    display: table;
+    background-color: #f7f7f7;
+    border-top: solid 2px gray;
+    padding: 3px;
+
+    a.headerlink {
+      &:hover {
+        color: lightblue;
+      }
+
+      &::before {
+        font-size: 1em !important;
+      }
+    }
+
+    em {
+      &.property {
+        color: #000000;
+      }
+
+      &.sig-param {
+        color: #00baf7;
+      }
+    }
+
+    code {
+      &.sig-prename,
+      &.descclassname {
+        color: #00598c;
+      }
+
+      &.sig-name,
+      &.descname {
+        color: #0097ff;
+      }
+    }
+  }
+  dd {
+    margin-left: 20px;
+  }
+}

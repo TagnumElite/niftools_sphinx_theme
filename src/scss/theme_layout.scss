@@ -159,16 +159,40 @@ div.content {
       position: sticky;
     }
 
-    .local-toc,
-    .global-toc {
+    .local-toc {
       padding-left: 0;
       margin-bottom: 0;
 
-      > ul {
+      ul {
         margin-top: 0;
         margin-bottom: 0;
-        padding-left: 0;
+        padding-left: 10px;
 
+        ul {
+          li {
+            display: none;
+          }
+        }
+
+        .active-parent ul {
+          display: block;
+        }
+
+        .active,
+        li:hover {
+          display: block;
+          & > ul > li {
+            display: block;
+          }
+
+          & > a {
+            border-left: solid #1ce;
+            color: purple;
+          }
+        }
+      }
+
+      > ul {
         li {
           ul {
             display: none;
@@ -188,11 +212,6 @@ div.content {
       list-style: none;
 
       li {
-        &.active a {
-          border-left: solid #1ce;
-          color: purple;
-        }
-
         a {
           color: #767676;
           //padding: 4px 20px;
