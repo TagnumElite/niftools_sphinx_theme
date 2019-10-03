@@ -154,13 +154,14 @@ function ready() {
   window.addEventListener("hashchange", hash);
   hash();
 
-  // Todo: Style this nicely
-  var spy = new Gumshoe("#local-toc ul a", {
-    offset: function() {
-      return header_offset;
-    },
-    nested: true
-  });
+  if (sel1("#local-toc")) {
+    var spy = new Gumshoe("#local-toc ul a", {
+      offset: function() {
+        return header_offset;
+      },
+      nested: true
+    });
+  }
 
   // Find all elements with class geopattern and give them a geopattern
   // If they don't have
