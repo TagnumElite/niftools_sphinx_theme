@@ -55,6 +55,16 @@ p.centered {
   text-align: center;
 }
 
+.highlight {
+  padding: 5px;
+  border: 1px solid #aaa;
+
+  pre {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
 .admonition {
   padding: 12px;
   line-height: 24px;
