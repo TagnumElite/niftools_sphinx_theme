@@ -132,8 +132,7 @@ function ready() {
     offset: function() {
       return header.getBoundingClientRect().height + 10;
     },
-    nested: true,
-    nestedClass: "active-parent"
+    nested: true
   });
 
   // Find all elements with class geopattern and give them a geopattern

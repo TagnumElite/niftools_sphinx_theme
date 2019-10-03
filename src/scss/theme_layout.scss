@@ -168,14 +168,8 @@ div.content {
         margin-bottom: 0;
         padding-left: 10px;
 
-        ul {
-          li {
-            display: none;
-          }
-        }
-
-        .active-parent ul {
-          display: block;
+        ul > li {
+          display: none;
         }
 
         .active,
@@ -188,21 +182,6 @@ div.content {
           & > a {
             border-left: solid #1ce;
             color: purple;
-          }
-        }
-      }
-
-      > ul {
-        li {
-          ul {
-            display: none;
-          }
-
-          &:hover,
-          &.active {
-            ul {
-              display: block;
-            }
           }
         }
       }
