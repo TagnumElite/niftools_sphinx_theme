@@ -31,8 +31,6 @@ before_install:
 
 install:
   - npm ci
-  - npm run dev
-  - python setup.py install
 
 script:
   - npm run build
