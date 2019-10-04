@@ -73,6 +73,7 @@ header.header {
         text-align: center;
         order: 2;
         display: none;
+        padding: 0;
 
         &.active {
           display: block;
@@ -348,9 +349,9 @@ footer.footer {
         width: auto;
       }
 
-      li {
+      /*li {
         padding: 15px 10px;
-      }
+      }*/
     }
   }
 }
