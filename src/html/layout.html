@@ -106,7 +106,9 @@
     <header class="header">
         <ul class="flex-container navbar">
             {% set home_ref = theme_brand_link if theme_brand_link else pathto(master_doc) %}
-            <li class="brand"><a href="{{ home_ref }}">{{ project }}</a></li>
+            <li class="brand"><a href="{{ home_ref }}">
+                {% if logo %}<img src="{{ pathto('_static/' + logo, 1) }}" alt="{{project}}">{% endif %}{{ project }}
+            </a></li>
             {% if theme_navs %}
             {% for link_name, link_ref in theme_navs.items() %}
                 {% if link_ref == "" %}
