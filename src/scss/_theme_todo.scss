@@ -1,0 +1,17 @@
+/*
+SCSS for Sphinx Builtin Extension: todo
+See more: https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
+*/
+
+.admonition.admonition-todo {
+  .admonition-title::before {
+    content: "\f14a\00a0";
+  }
+}
+
+p.todo-source {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: -22px;
+  margin-bottom: 24px;
+}

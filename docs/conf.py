@@ -33,8 +33,11 @@ release = niftools_sphinx_theme.__version__
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx.ext.autodoc",
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
     "niftools_sphinx_theme",
 ]
 
@@ -47,6 +50,10 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+
+today_fmt = "%d %B %Y"
+
+todo_include_todos = True
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -83,3 +90,8 @@ html_additional_pages = {
     # 'blog': 'blog.html',
     # 'projects': 'projects.html',
 }
+
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = "%H:%M | %d %b %Y"
+

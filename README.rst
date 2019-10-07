@@ -28,6 +28,7 @@ Features
 Supports these extensions:
 
 - autodoc_
+- todo_
 - viewcode_
 
 Templates
@@ -76,6 +77,7 @@ and copy all CSS_, JavaScript_ and fonts to the static folder.
 
 .. _PyPi: https://pypi.python.org/pypi/niftools_sphinx_theme
 .. _autodoc: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+.. _todo: https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
 .. _viewcode: https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html
 .. _Sphinx: http://www.sphinx-doc.org
 .. _NifTools: https://niftools.org
