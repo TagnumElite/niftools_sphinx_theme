@@ -16,7 +16,7 @@ matrix:
       language: shell
       before_install:
         - choco install python --version=3.7.5
-        - choco install nodejs.install
+        - choco install nodejs.install --version=12.13.0
         - npm i -g npm
         - python -m pip install --upgrade pip wheel
       env: PATH="/c/Python37:/c/Python37/Scripts:/c/Program Files/nodejs:$PATH"
