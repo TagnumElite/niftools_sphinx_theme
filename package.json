@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.7.2",
     "ava": "^2.4.0",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.5",
