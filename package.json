@@ -34,7 +34,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "clipboard": "^2.0.6",
     "geopattern": "^1.2.3",
     "gumshoejs": "^5.1.2",
