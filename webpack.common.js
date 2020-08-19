@@ -22,26 +22,28 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "static/css/[name].css"
     }),
-    new CopyPlugin([
-      {
-        from: "./src/html/",
-        to: ".",
-        force: true,
-        transform(content, path) {
-          return minify(content.toString(), html_minify_options);
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./src/html/",
+          to: ".",
+          force: true,
+          transform(content, path) {
+            return minify(content.toString(), html_minify_options);
+          }
+        },
+        {
+          from: "./src/templates/**/*.html",
+          to: "./templates/",
+          force: true,
+          toType: "dir",
+          flatten: true,
+          transform(content, path) {
+            return minify(content.toString(), html_minify_options);
+          }
         }
-      },
-      {
-        from: "./src/templates/**/*.html",
-        to: "./templates/",
-        force: true,
-        toType: "dir",
-        flatten: true,
-        transform(content, path) {
-          return minify(content.toString(), html_minify_options);
-        }
-      }
-    ])
+      ]
+    })
   ],
   node: { Buffer: false },
   externals: {
